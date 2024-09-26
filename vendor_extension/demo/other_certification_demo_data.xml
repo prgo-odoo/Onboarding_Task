@@ -1,0 +1,20 @@
+<odoo>
+    <record id="other_certification_ISO9001" model="other.certification">
+        <field name="name">ISO 9001:2015</field>
+    </record>
+    <record id="other_certification_ISO14001" model="other.certification">
+        <field name="name">ISO 14001:2015</field>
+    </record>
+    <record id="other_certification_ISO22000" model="other.certification">
+        <field name="name">ISO 22000:2018</field>
+    </record>
+    <record id="other_certification_FSSC" model="other.certification">
+        <field name="name">FSSC24000</field>
+    </record>
+    <record id="other_certification_other" model="other.certification">
+        <field name="name">Other</field>
+    </record>
+    <record id="other_certification_unverified" model="other.certification">
+        <field name="name">Unverified</field>
+    </record>
+</odoo>

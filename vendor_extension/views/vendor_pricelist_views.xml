@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_vendor_pricelist_tree_inherit" model="ir.ui.view">
+        <field name="name">vendor.pricelist.tree.inherit</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_tmpl_id']" position="after">
+                <field name="qty_per_case"/>
+                <field name="cases_per_container"/>
+                <field name="price_per_1000"/>
+                <field name="incoterm"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_vendor_pricelist_form_inherit" model="ir.ui.view">
+        <field name="name">vendor.pricelist.form.inherit</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_code']" position="after">
+                <field name="qty_per_case"/>
+                <field name="cases_per_container"/>
+                <field name="price_per_1000"/>
+                <field name="incoterm_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_vendor_pricelist_search_inherit" model="ir.ui.view">
+        <field name="name">vendor.pricelist.search.inherit</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='active_products']" position="after">
+                <filter string="Pricing" name="product_status_pricing" domain="[('product_tmpl_id.product_status_id.name', '=','Pricing')]"/>
+                <filter string="Dormant" name="product_status_dormant" domain="[('product_tmpl_id.product_status_id.name', '=', 'Dormant')]"/>
+                <filter string="NPD" name="product_status_npd" domain="[('product_tmpl_id.product_status_id.name', '=', 'NPD')]"/>
+                <filter string="Active" name="product_status_active" domain="[('product_tmpl_id.product_status_id.name', '=', 'Active')]"/>
+                <filter string="Archived" name="product_status_archived" domain="[('product_tmpl_id.product_status_id.name', '=', 'Archived')]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

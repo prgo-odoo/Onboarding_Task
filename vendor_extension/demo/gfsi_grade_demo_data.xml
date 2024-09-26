@@ -1,0 +1,29 @@
+<odoo>
+    <record id="gfsi_grade_AA+" model="gfsi.grade">
+        <field name="name">AA+</field>
+    </record>
+    <record id="gfsi_grade_AA" model="gfsi.grade">
+        <field name="name">AA</field>
+    </record>
+    <record id="gfsi_grade_A+" model="gfsi.grade">
+        <field name="name">A+</field>
+    </record>
+    <record id="gfsi_grade_B+" model="gfsi.grade">
+        <field name="name">B+</field>
+    </record>
+    <record id="gfsi_grade_B" model="gfsi.grade">
+        <field name="name">B</field>
+    </record>
+    <record id="gfsi_grade_C+" model="gfsi.grade">
+        <field name="name">C+</field>
+    </record>
+    <record id="gfsi_grade_C" model="gfsi.grade">
+        <field name="name">C</field>
+    </record>
+    <record id="gfsi_grade_other" model="gfsi.grade">
+        <field name="name">Other</field>
+    </record>
+    <record id="gfsi_grade_unknown" model="gfsi.grade">
+        <field name="name">Unknown</field>
+    </record>
+</odoo>

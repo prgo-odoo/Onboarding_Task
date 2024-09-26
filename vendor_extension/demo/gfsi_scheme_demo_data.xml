@@ -1,0 +1,14 @@
+<odoo>
+    <record id="gfsi_scheme_BRCGS" model="gfsi.scheme">
+        <field name="name">BRCGS</field>
+    </record>
+    <record id="gfsi_scheme_SQF" model="gfsi.scheme">
+        <field name="name">SQF</field>
+    </record>
+    <record id="gfsi_scheme_IFS" model="gfsi.scheme">
+        <field name="name">IFS</field>
+    </record>
+    <record id="gfsi_scheme_FSSC" model="gfsi.scheme">
+        <field name="name">FSSC 22000</field>
+    </record>
+</odoo>

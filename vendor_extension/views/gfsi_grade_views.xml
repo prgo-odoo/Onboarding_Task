@@ -1,0 +1,19 @@
+<odoo>
+    <record id="view_gfsi_grade_tree" model="ir.ui.view">
+        <field name="name">gfsi.grade.tree</field>
+        <field name="model">gfsi.grade</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="gfsi_grade_action" model="ir.actions.act_window">
+        <field name="name">GFSI Grade</field>
+        <field name="res_model">gfsi.grade</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_gfsi_grade" name="GFSI Grade" parent="menu_configuration_vendor" action="gfsi_grade_action"/>
+</odoo>

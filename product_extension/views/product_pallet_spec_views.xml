@@ -1,0 +1,47 @@
+<odoo>
+    <record id="action_product_palletspec" model="ir.actions.act_window">
+        <field name="name">Pallet Specification</field>
+        <field name="res_model">product.palletspec</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+    <record id="view_product_palletspec_tree" model="ir.ui.view">
+        <field name="name">product.palletspec.tree</field>
+        <field name="model">product.palletspec</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="product_tmpl_id"/>
+                <field name="name"/>
+                <field name="cases_per_layer"/>
+                <field name="layers_per_pallet"/>
+                <field name="units"/>
+                <field name="qty"/>
+                <field name="product_uom_id"/>
+                <field name="width"/>
+                <field name="length"/>
+                <field name="height"/>
+                <field name="weight"/>
+                <field name="volume"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_product_template_form_palletspec" model="ir.ui.view">
+        <field name="name">product.template.form.palletspec</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <page name="inventory" position="inside">
+                <group name="pallet_specification" string="Pallet Specification" colspan="4">
+                    <field colspan="2" name="pallet_spec_ids" nolabel="1">
+                        <tree string="Product Specifications" name="packaging_Specifications" editable="bottom"></tree>
+                    </field>
+                </group>
+            </page>
+        </field>
+    </record>
+
+    <menuitem id="menu_inventory_pallet_spec" name="Pallet Specification" parent="stock.menu_product_in_config_stock" action="action_product_palletspec"/>
+</odoo>
