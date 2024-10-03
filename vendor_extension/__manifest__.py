@@ -7,7 +7,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/vendor_status_data.xml',
+        # 'security/security.xml',
+        # 'data/vendor_status_data.xml',
         'views/vendor_status_views.xml',
         'views/res_partner_views.xml',
         'views/gfsi_scheme_views.xml',

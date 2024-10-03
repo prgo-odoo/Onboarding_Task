@@ -3,12 +3,12 @@
         <field name="name">vendor.status.tree</field>
         <field name="model">vendor.status</field>
         <field name="arch" type="xml">
-            <tree editable="top">
+            <tree editable="bottom">
                 <field name="hierarchy"/>
                 <field name="name"/>
                 <field name="status_change_ids" widget="many2many_tags"/>
                 <field name="prevent_po" decoration-success="prevent_po == 'no'" decoration-danger="prevent_po == 'yes'"/>
-                <field name="notify_user_id"/>
+                <field name="notify_user_id" readonly="prevent_po != 'alert'"/>
             </tree>
         </field>
     </record>

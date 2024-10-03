@@ -5,7 +5,11 @@ from odoo.exceptions import AccessError, ValidationError
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    vendor_status_id = fields.Many2one('vendor.status', string="Vendor Status")
+    def _default_vendor_status_id(self):
+        all_users = self.env['res.users'].search([('active', '=', True)]).ids
+        print(all_users)
+        return self.env['vendor.status'].search([('status_change_ids', 'in', all_users)])
+    vendor_status_id = fields.Many2one('vendor.status', string="Vendor Status", default=_default_vendor_status_id)
 
     product_category_ids = fields.Many2many('product.category', string="Product Categories")
 
@@ -41,6 +45,10 @@ class ResPartner(models.Model):
     gfsi_scheme_id = fields.Many2one('gfsi.scheme', string="GFSI Scheme")
 
     gfsi_grade_id = fields.Many2one('gfsi.grade', string="GFSI Grade")
+
+    is_verified_grade_1 = fields.Boolean(string='Verified - Grade 1')
+    is_verified_grade_2 = fields.Boolean(string='Verified - Grade 2')
+    is_on_hold = fields.Boolean(string='Active - On Hold')
 
     @api.model
     def write(self, vals):

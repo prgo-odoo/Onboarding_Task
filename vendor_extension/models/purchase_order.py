@@ -11,10 +11,10 @@ class PurchaseOrder(models.Model):
         if vendor.vendor_status_id.prevent_po == 'yes':
             raise ValidationError(_("You cannot create a Purchase Order for this vendor as 'Prevent PO' is set to 'Yes'."))
 
-        if vendor.vendor_status_id and vendor.vendor_status_id.name in ['Verified- Grade 1', 'Verified- Grade 2']:
-            vendor.vendor_status_id = self.env.ref('vendor_extension.vendor_status_active').id
+        if vendor.vendor_status_id and (vendor.is_verified_grade_1 or vendor.is_verified_grade_2):
+            vendor.vendor_status_id = self.env['vendor.status'].search([('status_change_ids' , '=', False)]).id
 
-        if vendor.vendor_status_id and vendor.vendor_status_id.name == 'Active - On Hold' and vendor.vendor_status_id.prevent_po == 'alert':
+        if vendor.vendor_status_id and vendor.is_on_hold and vendor.vendor_status_id.prevent_po == 'alert':
             notify_user = vendor.vendor_status_id.notify_user_id
             if notify_user:
                 activity_vals = {
