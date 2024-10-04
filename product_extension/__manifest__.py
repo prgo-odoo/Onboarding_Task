@@ -2,9 +2,7 @@
     'name': 'Product Extension',
     'version': '1.0',
     'description': "Product Extension",
-    'depends': [
-        'sale', 'stock'
-    ],
+    'depends': ['stock','sale'],
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',

@@ -2,9 +2,8 @@
     <record id="product_status_rule" model="ir.rule">
         <field name="name">Product Status Rule</field>
         <field name="model_id" ref="model_product_template"/>
-        <field name="domain_force">
-            [('product_status_id.group_change_up_id.id', 'in', user.groups_id.ids)]
-        </field>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[('product_status_id.group_change_up_id.id', 'in', user.groups_id.ids)]</field>
     </record>
 </odoo>
-
