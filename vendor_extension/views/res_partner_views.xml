@@ -5,21 +5,21 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <field name="vat" position="after">
-                <field name="customer_rank" invisible="True"/>
-                <field name="vendor_status_id" invisible="customer_rank > 0"/>
-                <field name="is_verified_grade_1"/>
-                <field name="is_verified_grade_2"/>
-                <field name="is_on_hold"/>
+                <field name="supplier_rank" invisible="True"/>
+                <field name="vendor_status_id" invisible="supplier_rank == 0"/>
+                <field name="is_verified_grade_1" invisible="supplier_rank == 0"/>
+                <field name="is_verified_grade_2" invisible="supplier_rank == 0"/>
+                <field name="is_on_hold" invisible="supplier_rank == 0"/>
             </field>
             <xpath expr="//page[@name='internal_notes']" position="after">
-                <page name="product_categories" string="Product Categories" invisible="customer_rank > 0">
+                <page name="product_categories" string="Product Categories" invisible="supplier_rank == 0">
                     <group>
                         <field name="product_category_ids" widget="many2many_tags"/>
                     </group>
                 </page>
             </xpath>
             <xpath expr="//page[@name='product_categories']" position="after">
-                <page name='compliance' string="Compliance" invisible="customer_rank > 0">
+                <page name='compliance' string="Compliance" invisible="supplier_rank == 0">
                     <group>
                         <group>
                             <field name="sedex_registered" />
