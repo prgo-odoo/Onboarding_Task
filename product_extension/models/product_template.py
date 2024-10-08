@@ -15,7 +15,6 @@ class ProductTemplate(models.Model):
     pallet_spec_ids = fields.One2many('product.palletspec', 'product_tmpl_id', string='Pallet Specification')
 
     landing_cost = fields.Float(string='Landing Cost')
-
     margin = fields.Float(string='Margin', compute='_compute_margin')
 
     is_archived = fields.Boolean(string='Is Archived')
